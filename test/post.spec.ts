@@ -37,4 +37,17 @@ test.group('Create Post', (group) => {
       assert.isString(persistedPost.authorId)
     }
   )
+
+  test.failing(
+    'check if the persisted id without factory is the same returned by model create',
+    async (assert) => {
+      const author = await Author.create({
+        name: 'Jhon',
+      })
+      const persistedAuthor = (await Author.first())!
+
+      assert.equal(author.id, persistedAuthor.id)
+      assert.isString(author.id)
+    }
+  )
 })
