@@ -10,6 +10,8 @@ import { v4 as uuid } from 'uuid'
 import Author from './Author'
 
 export default class Post extends BaseModel {
+  public static selfAssignPrimaryKey = true
+
   @column({ isPrimary: true })
   public id: string
 

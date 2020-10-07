@@ -13,41 +13,32 @@ test.group('Create Post', (group) => {
     await Database.rollbackGlobalTransaction()
   })
 
-  test.failing(
-    'check if the persisted id is the same returned by factory',
-    async (assert) => {
-      const author = await AuthorFactory.create()
-      const persistedAuthor = (await Author.first())!
+  test('check if the persisted id is the same returned by factory', async (assert) => {
+    const author = await AuthorFactory.create()
+    const persistedAuthor = (await Author.first())!
 
-      assert.equal(author.id, persistedAuthor.id)
-      assert.isString(author.id)
-    }
-  )
+    assert.equal(author.id, persistedAuthor.id)
+    assert.isString(author.id)
+  })
 
-  test.failing(
-    'check if the related author id is the same returned by factory',
-    async (assert) => {
-      const post = await PostFactory.with('author').create()
-      const persistedPost = (await Post.query().first())!
-      const author = (await Author.first())!
+  test('check if the related author id is the same returned by factory', async (assert) => {
+    const post = await PostFactory.with('author').create()
+    const persistedPost = (await Post.query().first())!
+    const author = (await Author.first())!
 
-      assert.equal(post.author.id, persistedPost.authorId)
+    assert.equal(post.author.id, persistedPost.authorId)
 
-      assert.equal(persistedPost.authorId, author.id)
-      assert.isString(persistedPost.authorId)
-    }
-  )
+    assert.equal(persistedPost.authorId, author.id)
+    assert.isString(persistedPost.authorId)
+  })
 
-  test.failing(
-    'check if the persisted id without factory is the same returned by model create',
-    async (assert) => {
-      const author = await Author.create({
-        name: 'Jhon',
-      })
-      const persistedAuthor = (await Author.first())!
+  test('check if the persisted id without factory is the same returned by model create', async (assert) => {
+    const author = await Author.create({
+      name: 'Jhon',
+    })
+    const persistedAuthor = (await Author.first())!
 
-      assert.equal(author.id, persistedAuthor.id)
-      assert.isString(author.id)
-    }
-  )
+    assert.equal(author.id, persistedAuthor.id)
+    assert.isString(author.id)
+  })
 })

@@ -25,7 +25,7 @@
     "@adonisjs/ace": "^6.0.0",
     "@adonisjs/core": "^5.0.0-preview-rc",
     "@adonisjs/fold": "^6.0.0",
-    "@adonisjs/lucid": "^8.4.4",
+    "@adonisjs/lucid": "^8.5.0",
     "luxon": "^1.25.0",
     "pg": "^8.3.3",
     "proxy-addr": "^2.0.6",
