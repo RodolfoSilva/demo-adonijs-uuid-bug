@@ -8,7 +8,7 @@
     "dev": "node ace serve --watch",
     "lint": "eslint . --ext=.ts",
     "format": "prettier --write .",
-    "test": "node build/japaFile.js"
+    "test": "node japaFile.js"
   },
   "devDependencies": {
     "@adonisjs/assembler": "^3.0.0",
@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@adonisjs/core": "^5.0.4-preview-rc",
-    "@adonisjs/lucid": "^8.5.0",
+    "@adonisjs/lucid": "^9.0.3",
     "@adonisjs/repl": "^1.0.0",
     "luxon": "^1.25.0",
     "pg": "^8.3.3",

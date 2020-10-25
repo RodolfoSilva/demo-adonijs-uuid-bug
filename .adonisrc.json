@@ -10,13 +10,19 @@
   "aliases": {
     "App": "app",
     "Config": "config",
-    "Database": "database",
-    "Contracts": "contracts"
+    "Contracts": "contracts",
+    "Database": "database"
   },
-  "preloads": ["./start/routes", "./start/kernel"],
-  "providers": ["./providers/AppProvider", "@adonisjs/core"],
-  "aceProviders": [
-    "@adonisjs/repl",
+  "preloads": [
+    "./start/routes",
+    "./start/kernel"
+  ],
+  "providers": [
+    "./providers/AppProvider",
+    "@adonisjs/core",
     "@adonisjs/lucid"
+  ],
+  "aceProviders": [
+    "@adonisjs/repl"
   ]
 }
