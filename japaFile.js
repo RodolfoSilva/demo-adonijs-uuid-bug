@@ -1,3 +1,4 @@
+process.env.DEBUG = 'adonis:require-ts'
 require('@adonisjs/require-ts/build/register')
 require('reflect-metadata')
 
@@ -23,8 +24,8 @@ async function rollbackMigrations() {
 }
 
 async function startHttpServer() {
-  const { Ignitor } = require('@adonisjs/core/build/standalone')
   process.env.PORT = String(await getPort())
+  const { Ignitor } = require('@adonisjs/core/build/standalone')
   await new Ignitor(__dirname).httpServer().start()
 }
 
@@ -32,7 +33,7 @@ async function startHttpServer() {
  * Configure test runner
  */
 configure({
-  files: ['test/**/*.spec.js'],
+  files: ['test/**/*.spec.ts'],
   before: [runMigrations, startHttpServer],
   after: [rollbackMigrations],
 })
