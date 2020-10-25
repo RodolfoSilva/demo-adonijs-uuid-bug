@@ -8,7 +8,7 @@
     "dev": "node ace serve --watch",
     "lint": "eslint . --ext=.ts",
     "format": "prettier --write .",
-    "test": "node japaFile.js"
+    "test": "node -r @adonisjs/assembler/build/register japaFile.ts"
   },
   "devDependencies": {
     "@adonisjs/assembler": "^3.0.0",
