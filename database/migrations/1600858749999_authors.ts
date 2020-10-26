@@ -1,17 +1,13 @@
 import BaseSchema from '@ioc:Adonis/Lucid/Schema'
 
-export default class Authors extends BaseSchema {
-  protected tableName = 'authors'
+export default class AnyMigrationError extends BaseSchema {
+  protected tableName = 'any'
 
-  public async up () {
-    this.schema.createTable(this.tableName, (table) => {
-      table.string('id').primary()
-      table.string('name').notNullable()
-      table.timestamps(true)
-    })
+  public async up() {
+    throw new Error('Something went wrong...')
   }
 
-  public async down () {
+  public async down() {
     this.schema.dropTable(this.tableName)
   }
 }
